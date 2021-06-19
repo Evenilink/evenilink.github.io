@@ -208,7 +208,7 @@ pre {
   -webkit-overflow-scrolling: touch;
   font-family: "Courier New", monospace;
   font-size: 0.9em;
-  margin: 0 0 2em 0; }
+  margin: 0 0 0 0; }
   pre code {
     display: block;
     line-height: 1.75;
@@ -2304,6 +2304,6 @@ button,
   margin-bottom: 10px;
 }
 
-hr.solid {
-  border-top: 1px dashed #bbb;
+hr.dashed {
+  border: 2px dashed;
 }
