@@ -84,7 +84,15 @@
 														<div lang="jp" class="project-pitch">テスト日本語.</div>
 													</p>
 													<p>
-														<div lang="en">The game is currently under development, so I'll update my contributions to the project once the game has released!.</div>
+														<div lang="en">Game currently under development. Here's a snippet of what I've worked on and has been shown to the public:</div>
+														<ul>
+															<li>Interaction System - Improvements on the interaction system, creating different profiles that are contextually evaluated.</li>
+															<li>Networking - Wrote multiplayer code for the gameplay systems I was in charge of.</li>
+															<li>Exposed C++ functionalities to blueprint nodes using LUA, used by mission designers.</li>
+															<li>Animations - Worked with animators to link animations to gameplay systems.</li>
+															<li>UI - New gameplay features required new HUDs and screens, which I've created as they were needed, working closely with UI artists. I've also created a tutorial video for the team on how to code UI tech.</li>
+														</ul>
+														<p>Once the game releases, I'll update this section to be more specific.</p>
 														<div lang="jp"></div>
 													</p>
 												</div>
@@ -109,7 +117,7 @@
 														<div lang="jp" class="project-pitch"></div>
 													</p>
 													<p>
-														<div lang="en">The game is currently under development, so I'll update my contributions to the project once the game has released!</div>
+														<div lang="en">Game currently under development. I'll update my contributions once the game has released! Expect some interesting things!</div>
 														<div lang="jp"></div>
 													</p>
 												</div>
@@ -130,28 +138,28 @@
 												</div>
 												<div class="col-7 col-12-medium">
 													<p>
-														<div lang="en" class="project-pitch">Ganbatte is a competitive social multiplayer arcade game for VR, about cats, in space, eating sushi. Try to eat as much valuable sushi as you can and reach the highest score.</div>
+														<div lang="en" class="project-pitch">Cats, in space, eating sushi! Ganbatte is a competitive social multiplayer arcade game, where you try to eat as much valuable sushi as you can to reach the highest score. <a href="https://store.steampowered.com/app/691680/Ganbatte/">~ Steam Page ~</a></div>
 														<div lang="jp" class="project-pitch"></div>
 													</p>
 													<ul>
 														<li>
-															<div lang="en">Gameplay implementation, such as the plate's respawn system, combo system, player interaction and game state.</div>
+															<div lang="en">Gameplay implementation - Plate's respawn system, combo system, player interaction, game state, etc.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Worked on all of the networking aspects of the game.</div>
+															<div lang="en">AI - Used Behavior Trees to program the behavior of the AI entities behavior (and adapt it to a multiplayer setting), like the heuristic to follow when choosing the plate to eat, their movement, and social interactions with the player.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Used Behavior Trees to program NPCs' AI (and adapt it to a multiplayer setting).</div>
+															<div lang="en">Networking - Implemented the required network code to allow the game to be played in a multiplayer setting, both for the player and for AI entities.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Programmed a lot of the user interface.</div>
+															<div lang="en">Animation Graphs - Facial states of the cats, including eye blinks and facial moods.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Worked a lot with the Persona System in order to implement animation controllers.</div>
+															<div lang="en">UI - Implemented diegetic UI used to convey the game state to the players (scoring, round information, combos, etc).</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
@@ -199,23 +207,19 @@
 													</p>
 													<ul>
 														<li>
-															<div lang="en">Implemented each creature's gameplay (like running using the touch controllers, grabbing objects, shapeshift into other creatures), inventory system and scripted events.</div>
+															<div lang="en">Gameplay - Creature's gameplay (running using the touch controllers, grabbing objects, shapeshift into other creatures), inventory system (with a portal-representation) and scripted events.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Used Behavior Trees to program the game's AI.</div>
+															<div lang="en">AI - Used Behavior Trees to program the game's AI.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Animation Controllers implementation.</div>
+															<div lang="en">Animation Graphs - Implemented the animation graphs of each creature.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Handled all the sound programming.</div>
-															<div lang="jp"></div>
-														</li>
-														<li>
-															<div lang="en">Worked with a team of programmers, artists and sound designers (10 people).</div>
+															<div lang="en">Sound - Worked with a sound designer on the setup of the sounds of the game (sound classes, attenuation).</div>
 															<div lang="jp"></div>
 														</li>
 													</ul>
@@ -247,7 +251,7 @@
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Implemented cover system, allowing the character to move around corners and to jump between cover to cover.</div>
+															<div lang="en">Cover system, allowing the character to move around corners and to jump between cover to cover.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
@@ -264,7 +268,6 @@
 											<hr class="solid">
 										</article>
 
-
 										<article id="behavior-tree-plugin">
 											<h2>
 												<div lang="en">Behavior Tree Plugin for Unity</div>
@@ -272,24 +275,31 @@
 											</h2>
 											<div class="row gtr-200">
 												<div class="col-5 col-12-medium">
-													<span class="image fit"><img src="" alt="" /></span>
-													<div class="video-container">
-														<iframe allowfullscreen class="responsive-iframe" src=""></iframe>
-													</div> 
+													<pre>
+														<code>
+// Simple Demonstration.
+[Serializable]
+public class BT_Player : BehaviourTree {
+  public BT_Player(BB_Player blackboard) : base(blackboard) {
+    root =
+      new MemSelector(new List<BaseNode> {
+        new MemSequence(new List<BaseNode> {
+	      new BTTask_MoveTo(ref blackboard.nextPointVector, 3.0f)
+        }, new BlackboardCondition<Hero.State>(ref blackboard.heroState, Hero.State.Unprotected, Utils.KEY_QUERY.IS_EQUAL_TO))
+      });
+  }
+}
+														</code>
+													</pre>
 												</div>
 												<div class="col-7 col-12-medium">
 													<p>
-														<div lang="en" class="project-pitch">My own Behavior Tree plugin for the Unity Engine, complete with Blackboards, Composite Nodes, Tasks, Decorators and Behavior Trees. The project repository is available <a href="https://github.com/Evenilink/Unity-BehaviorTreeSystem">here</a>.</div>
+														<div lang="en" class="project-pitch">My own Behavior Tree plugin for the Unity Engine, complete with Blackboards, Composite Nodes, Tasks, Decorators and Behavior Trees. The open source project repository is available <a href="https://github.com/Evenilink/Unity-BehaviorTreeSystem">here</a>.</div>
 														<div lang="jp" class="project-pitch"></div>
 													</p>
-													<ul>
-														<li>
-															<div lang="en"></div>
-															<div lang="jp"></div>
-														</li>
-													</ul>
 												</div>
 											</div>
+											<hr class="solid">
 										</article>
 
 										<article id="unstatic">
@@ -306,25 +316,26 @@
 												</div>
 												<div class="col-7 col-12-medium">
 													<p>
-														<div lang="en" class="project-pitch">A Star Wars inspired multiplayer-droid-racing game (each droid with a unique special ability).</div>
+														<div lang="en" class="project-pitch">A Star Wars inspired multiplayer-droid-racing game, where each droid has a unique special ability.</div>
 														<div lang="jp" class="project-pitch"></div>
 													</p>
 													<ul>
 														<li>
-															<div lang="en">Gameplay implementation, such as the player controller, lap control and character's abilities.</div>
+															<div lang="en">Gameplay - Implemented player controller, lap manager with checkpoint system, live-leaderboard during the race, and characters' abilities (warp screen shader on the opponents; spawning of a companion which would detonate once an opponent came close enough; player increases size to throw off opponents; dash velocity; etc).</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Networking of all the gameplay elements, as well as the game state.</div>
+															<div lang="en">Networking - All the gameplay elements are multiplayer-ready, as well as the game state.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Programmed most of the user interface.</div>
+															<div lang="en">UI - Implemented the required HUD visualizations, like the leaderboard, current time, lap, and power usage.</div>
 															<div lang="jp"></div>
 														</li>
 													</ul>
 												</div>
 											</div>
+											<hr class="solid">
 										</article>
 
 									</div>
@@ -337,12 +348,12 @@
 									</header>
 									<div class="row">
 										<div class="col-6 col-12-small">
-											<h3>3D Math</h3>
-											<p>Had to program numerous gameplay features that required mathematical concepts, like enemy perception (vision and hearing), hands slapping detection and a stealth cover system.</p>
-										</div>
-										<div class="col-6 col-12-small">
 											<h3>Artificial Intelligence</h3>
 											<p>This is one of my favorite fields. I’ve worked with Finite State Machines and Behavior Trees, implemented features like A* pathfinding and Dijkstra shortest path, a multi-agent cooperative system in which the agents have to exit an unknown space, and even my own Behavior Tree System for Unity, all of these from scratch.</p>
+										</div>
+										<div class="col-6 col-12-small">
+											<h3>3D Math</h3>
+											<p>Had to program numerous gameplay features that required mathematical concepts, like enemy perception (vision and hearing), hands slapping detection and a stealth cover system.</p>
 										</div>
 										<!-- Break -->
 										<div class="col-4 col-12-medium">
