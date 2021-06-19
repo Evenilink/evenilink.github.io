@@ -471,7 +471,9 @@ public class BT_Player : BehaviourTree {
 											<div lang="jp"></div>
 										</h2>
 									</div>
+
 									<hr>
+									
 									<ul>
 										<li><a href="#banner">
 											<div lang="en">Welcome</div>
@@ -527,7 +529,6 @@ public class BT_Player : BehaviourTree {
 
 						</div>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->
@@ -536,22 +537,6 @@ public class BT_Player : BehaviourTree {
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				function localize(language)
-				{
-					let lang = ':lang(' + language + ')';
-					let hide = '[lang]:not(' + lang + ')';
-	
-					document.querySelectorAll(hide).forEach(function (node) {
-						node.style.display = 'none';
-					});
-					
-					let show = '[lang]' + lang;
-					document.querySelectorAll(show).forEach(function (node) {
-						node.style.display = 'unset';
-					});
-				}
-			</script>
-
+			<script src="assets/js/custom.js"></script>
 	</body>
 </html>
