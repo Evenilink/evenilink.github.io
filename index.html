@@ -31,12 +31,12 @@
 										<header>
 											<h1>José Vieira</h1>
 											<h2>
-												<div lang='en'>AI & Gameplay Programmer</div>
+												<div lang='en'>Senior AI Programmer</div>
 												<div lang='jp'>ゲ-ム</div>
 											</h2>
 											<h3>
-												<div lang='en'>Coding at: <a href="https://www.ubisoftsingapore.com/" target="_blank"><u>Ubisoft Singapore</u></a></div>
-												<div lang='jp'>今仕事に： Ubisoft Singapore</div>
+												<div lang='en'>Coding at: <a href="https://ioi.dk/" target="_blank"><u>IO Interactive</u></a></div>
+												<div lang='jp'>今仕事に： IO Interactive</div>
 											</h3>
 										</header>
 										<div lang='en'>
@@ -51,7 +51,7 @@
 										</div>
 										<div lang='jp'></div>
 										<ul class="actions stacked">
-											<li><a href="https://drive.google.com/file/d/1dDHPBgGgY8lw2GmXXZgKvK-BYIoBPtsp/view?usp=sharing" target="_blank" class="button primary fit icon solid fa-download">
+											<li><a href="https://drive.google.com/file/d/1z1u_whfVpYT_trx5WIRNG3mMeeL2LXiC/view?usp=sharing" target="_blank" class="button primary fit icon solid fa-download">
 												<div lang='en'>Resume</div>
 												<div lang='jp'>履歴書</div>
 											</a></li>
@@ -72,6 +72,36 @@
 									</header>
 									<div class="posts">
 										
+										<article id="first-light">
+											<h2>
+												<div lang="en">007 First Light</div>
+												<div lang="jp"></div>	
+											</h2>
+											<div class="row gtr-200">
+												<div class="col-5 col-12-medium">
+													<span class="image fit"><img src="images/007-first-light.png" alt="007 First Light Cover" /></span>
+													<div class="video-container">
+														<iframe allowfullscreen class="responsive-iframe" src="https://www.youtube.com/embed/J4qY9DYE184"></iframe>
+													</div> 
+												</div>
+												<div class="col-7 col-12-medium">
+													<p>
+														<div lang="en" class="project-pitch">Follow James Bond as a young, resourceful, and sometimes reckless recruit in MI6's training program, and discover an origin story of the world’s most famous spy. Will update my contributions once the game is released.</div>
+														<div lang="jp" class="project-pitch"></div>
+													</p>
+													<p>
+														<div lang="en">
+															<ul>
+																<li>Working as a Senior AI Programmer, contributing to tech like Environment Query System, AI Perception, HTN, Navigation, etc...</li>
+															</ul>
+														</div>
+														<div lang="jp"></div>
+													</p>
+												</div>
+											</div>
+											<hr class="dashed">
+										</article>
+
 										<article id="skull-and-bones">
 											<h2>
 												<div lang="en">Skull and Bones</div>
@@ -93,6 +123,7 @@
 														<div lang="en">
 															<ul>
 																<h3><b>AI</b></h3>
+																<li><b>Sea Monsters</b> - Developed the tech framework for sea monsters, including decision‑making using a HSM, data‑driven attacks with animation integration, attack windows, hit reactions, etc...</li>
 																<li><b>Environment Query System</b> - Contributed to the implementation of a spatial awareness system used by the AI agents to query the environment in order to find the best position for it to move.</li>
 																<li><b>Archetype Behaviors</b> - Implemented different ship archetypes using Behavior Trees (e.g. guarding ships; ships targeting the player's side; ...).</li>
 																<li><b>Utility AI</b> - Used to decide on the high level behaviors of the agents (e.g. in combat; out of combat; fleeing; ...).</li>
@@ -260,6 +291,7 @@
 											<hr class="dashed">
 										</article>
 
+										<!--
 										<article id="stealth-prototype">
 											<h2>
 												<div lang="en">Deus Ex based Stealth Prototype</div>
@@ -299,6 +331,7 @@
 											</div>
 											<hr class="dashed">
 										</article>
+										-->
 
 										<article id="behavior-tree-plugin">
 											<h2>
@@ -377,25 +410,37 @@ public class BT_Player : BehaviourTree {
 										<h2>Skills</h2>
 									</header>
 									<div class="row">
-										<div class="col-6 col-12-small">
-											<h3>Artificial Intelligence</h3>
-											<p>One of my favorite fields. I've worked with Behavior Trees and Finite State Machines, implemented a multi-agent cooperative system in which the agents have to exit an unknown space, features like A* pathfinding and Dijkstra shortest path and even my own Behavior Tree System for Unity, all of these from scratch. I've used Environment Query Systems (EQS) to create tactical responses in gameplay, and I'm familiar with GOAP systems.</p>
+										<div class="col-6 col-12-medium">
+											<h3>Behavior Trees</h3>
+											<p>Very experienced with them. I’ve implemented different AI Archetypes in Skull and Bones using BTs and a variety of decorators, composite nodes, sub‑trees and the like. Also used them while working on Ganbatte, and I’ve written my own Behavior Tree plugin for the Unity engine, which gives me a good understanding of how to use them but also how they actually work in code.</p>
 										</div>
-										<div class="col-6 col-12-small">
+										<div class="col-6 col-12-medium">
+											<h3>Environment Query System</h3>
+											<p>Very experienced with EQS. I’ve expanded the technology in ”007 First Light” with more generators, filters and evaluators. Used it in Skull and Bones for sea monster and ship position selection (e.g. keeping an enemy ship at the back of the player’s ship; keep an enemy ship in a position where it’s close to its allies but blocking the line of sight from the player to the allies; etc). I’ve also used it in Unreal Engine for small prototypes (e.g. simulating Final Fantasy XV AI buddy position philosophy, where the agents stay at the front of the player’s direction and in the camera view while roaming in the world).</p>
+										</div>
+										<div class="col-6 col-12-medium">
+											<h3>Pathfinding & Navigation</h3>
+											<p>I’ve implemented pathfinding algorithms like A* (e.g. in a project where many agents are placed in a room with fog of war, with the goal of finding the room exit and informing the other agents where the exit is). In ”007 First Light”, worked on generating paths with Navigation Links and coded how the agents use said links, with animation integration. Also implemented Dijkstra algorithm for a GPS app that lets users see the shortest path from a starting to an ending location.</p>
+										</div>
+										<div class="col-6 col-12-medium">
+											<h3>Hierarchical and Finite State Machines</h3>
+											<p>Experienced with both HSM and FSM for controlling AI agents, for the player controller, and for animation graphs. I’ve used HSM in Skull and Bones for sea monsters, and on Far Cry 6 for the player controller state machine (for hierarchical states like Ground/GroundMove/GoundSliding).</p>
+										</div>
+										<div class="col-4 col-12-medium">
 											<h3>3D Math</h3>
-											<p>I like to implement systems based on math solutions (examples of previous work): simulation of object placement in a 3D world with collision constrains (using vector scaling projection and dot product); enemy-perception system (vision and hearing senses), hand-slapping detection; stealth cover system following the meshes' limits; lever's rotation in VR, etc.</p>
+											<p>Programmed numerous gameplay features that required mathematical concepts, like enemy perception (vision and hearing), stealth cover system, hover car vehicle, evaluators for environmental spatial queries, etc...</p>
 										</div>
-										<div class="col-6 col-12-small">
+										<div class="col-4 col-12-medium">
 											<h3>Code Architecture and Design Patterns</h3>
 											<p>I thoroughly enjoy designing new gameplay systems from scratch and coming up with a good architecture to make it as efficiently designed and data-driven as possible, using design patterns whenever possible. Allowing designers to create different gameplay scenarios just by manipulating data is something I always strive for.</p>
 										</div>
-										<div class="col-6 col-12-small">
+										<div class="col-4 col-12-medium">
 											<h3>Animation Graphs</h3>
 											<p>Experience working with Animation Graphs, like defining the different animation state machines and their transitions, making use of additive animations, as well as blending between different ones. This is an aspect of game development I find very rewarding, it's a bridge between tech and art where the character comes alive!</p>
 										</div>
 										<div class="col-4 col-12-medium">
 											<h3>Networking</h3>
-											<p>Experience with techniques like client-side prediction, server reconciliation and entity interpolation, as well as working with replication models. Worked with both dedicated and listen servers.</p>
+											<p>I’ve used techniques like client‑side prediction, server reconciliation and entity interpolation for the Unstatic project. I also have experience working with replication models in AAA games and personal projects</p>
 										</div>
 										<div class="col-4 col-12-medium">
 											<h3>Debugging</h3>
@@ -418,11 +463,21 @@ public class BT_Player : BehaviourTree {
 									<div class="posts">
 
 										<article>
+											<h2>IO Interactive</h2>
+											<p>
+												<span class="image left"><img src="images/ioi-logo.jpg" alt="IO Interactive Logo" /></span>
+												<h4 >Senior AI Programmer</h4>
+												<h4>September 2023 - Present</h4>
+												Working on 007 First Light.
+											</p>
+										</article>
+
+										<article>
 											<h2>Ubisoft Singapore</h2>
 											<p>
 												<span class="image left"><img src="images/ubisoft-white.png" alt="Ubisoft Logo" /></span>
 												<h4 >AI & Gameplay Programmer</h4>
-												<h4>October 2020 - Present</h4>
+												<h4>October 2020 - July 2023</h4>
 												Moved to Singapore to experience working on a studio that was the lead studio on a AAA project (Skull and Bones).
 											</p>
 										</article>
@@ -441,7 +496,7 @@ public class BT_Player : BehaviourTree {
 										<article>
 											<h2>Mimicry</h2>
 											<p><span class="image left"><img src="images/mimicry.png" alt="Mimicry Logo" /></span>
-												<h4>Gameplay Programmer | Gameplay Programmer Internship</h4>
+												<h4>Gameplay Programmer</h4>
 												<h4>June 2017 - April 2018</h4>
 												My stay at Mimicry started as a summer internship, which became a part-time position while I was studying during my Master's Degree.
 											</p>
@@ -488,7 +543,7 @@ public class BT_Player : BehaviourTree {
 											<div lang="jp"></div>
 										</h2>
 										<h2>
-											<div lang="en">AI & Gameplay Programmer</div>
+											<div lang="en">Senior AI Programmer</div>
 											<div lang="jp"></div>
 										</h2>
 									</div>
@@ -503,6 +558,7 @@ public class BT_Player : BehaviourTree {
 										<li>
 											<span class="opener">Professional Projects</span>
 											<ul>
+												<li><a href="#first-light">007 First Light</a></li>
 												<li><a href="#skull-and-bones">Skull and Bones</a></li>
 												<li><a href="#far-cry-6">Far Cry 6</a></li>
 												<li><a href="#ganbatte">Ganbatte</a></li>
@@ -512,7 +568,7 @@ public class BT_Player : BehaviourTree {
 											<span class="opener">Personal Projects</span>
 											<ul>
 												<li><a href="#magis">Magis</a></li>
-												<li><a href="#stealth-prototype">Stealth Prototype</a></li>
+												<!--li><a href="#stealth-prototype">Stealth Prototype</a></li-->
 												<li><a href="#behavior-tree-plugin">Behavior Tree Plugin</a></li>
 												<li><a href="#unstatic">Unstatic</a></li>
 											</ul>
@@ -532,7 +588,7 @@ public class BT_Player : BehaviourTree {
 											<div lang='en'>LinkedIn</div>
 											<div lang='jp'>LinkedIn</div>
 										</a></li>
-										<li><a href="https://drive.google.com/file/d/1dDHPBgGgY8lw2GmXXZgKvK-BYIoBPtsp/view?usp=sharing" target="_blank" class="button primary fit icon solid fa-download">
+										<li><a href="https://drive.google.com/file/d/1z1u_whfVpYT_trx5WIRNG3mMeeL2LXiC/view?usp=sharing" target="_blank" class="button primary fit icon solid fa-download">
 											<div lang='en'>Resume</div>
 											<div lang='jp'>履歴書</div>
 										</a></li>
