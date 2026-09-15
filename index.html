@@ -31,22 +31,21 @@
 										<header>
 											<h1>José Vieira</h1>
 											<h2>
-												<div lang='en'>Senior AI Programmer</div>
+												<div lang='en'>Senior AI/Gameplay Programmer</div>
 												<div lang='jp'>ゲ-ム</div>
 											</h2>
 											<h3>
-												<div lang='en'>Coding at: <a href="https://ioi.dk/" target="_blank"><u>IO Interactive</u></a></div>
-												<div lang='jp'>今仕事に： IO Interactive</div>
+												<div lang='en'>Working at: <a href="https://www.unseen-tokyo.com/" target="_blank"><u>UNSEEN Tokyo</u></a></div>
+												<div lang='jp'>今仕事に： UNSEEN Tokyo</div>
 											</h3>
 										</header>
 										<div lang='en'>
 											<p>
-												Hello there! I'm José Vieira and I'm a huge videogame fan!
-												<br>I love making AI behavior and engaging in the design process of the enemies, as well as buddy AI systems. Really enjoy delving into 3Cs as well, especially tight/responsive movement systems and combat abilities! I'm always up to take on a hard challenge, contributing with what I know and learning what I don't know to get a game up and running, everything I can do to have something I'm proud of in my hands!
+												Hello, I'm José Vieira and I've been working professionally in games since 2017.
+												<br>I love making AI behavior and engaging in the design process of the NPCs, as well as buddy AI systems. Really enjoy delving into 3Cs as well, especially tight/responsive movement systems and combat abilities!
 											</p>
 											<p>
-												Games have always been my biggest passion and my creative fuel. Been playing since my parents gave me a copy of <em>Super Mario Bros.</em> when I was a little kid!
-												In my free time (apart from obviously playing games), I like to develop small game prototypes, collecting swords, go for a good run, and maybe rewatch <em>Lord of the Rings</em> (it never gets old)!
+												Games have always been my biggest passion and my creative fuel (been playing since my parents gave me a copy of <em>Super Mario Bros.</em>), and collecting swords is the second!
 											</p>
 										</div>
 										<div lang='jp'></div>
@@ -71,6 +70,37 @@
 										</h2>
 									</header>
 									<div class="posts">
+
+										<article id="kemuri">
+											<h2>
+												<div lang="en">Kemuri</div>
+												<div lang="jp"></div>	
+											</h2>
+											<div class="row gtr-200">
+												<div class="col-5 col-12-medium">
+													<span class="image fit"><img src="images/kemuri.png" alt="Kemuri Cover" /></span>
+													<div class="video-container">
+														<iframe allowfullscreen class="responsive-iframe" src="https://www.youtube.com/watch?v=yWMwRfJj8So"></iframe>
+													</div> 
+												</div>
+												<div class="col-7 col-12-medium">
+													<p>
+														<div lang="en" class="project-pitch">As a Yokai Hunter, use the Fox Window to reveal what others cannot see, form contracts with the yokai you encounter, and wear their power as Possession Apparel.</div>
+														<div lang="jp" class="project-pitch"></div>
+													</p>
+													<p>
+														<div lang="en">
+															<ul>
+																<li>Since the game is still in development, I’ll just briefly mention some contributions without going into details: Combat AI behaviors for ground and flying NPCs, combat feel, Attack Ticket System, flight movement, Behavior Tree logic, Environment Query System extension, GAS, etc....
+																</li>
+															</ul>
+														</div>
+														<div lang="jp"></div>
+													</p>
+												</div>
+											</div>
+											<hr class="dashed">
+										</article>
 										
 										<article id="first-light">
 											<h2>
@@ -86,13 +116,24 @@
 												</div>
 												<div class="col-7 col-12-medium">
 													<p>
-														<div lang="en" class="project-pitch">Follow James Bond as a young, resourceful, and sometimes reckless recruit in MI6's training program, and discover an origin story of the world’s most famous spy. Will update my contributions once the game is released.</div>
+														<div lang="en" class="project-pitch">An espionage action-adventure game. Follow James Bond as a young, resourceful and sometimes reckless recruit in MI6's training programme, and discover an origin story of the world’s most famous spy.
+														<br>Overview of my work on the game:</div>
 														<div lang="jp" class="project-pitch"></div>
 													</p>
 													<p>
 														<div lang="en">
 															<ul>
-																<li>Working as a Senior AI Programmer, contributing to tech like Environment Query System, AI Perception, HTN, Navigation, etc...</li>
+																<li><b>Companion AI</b> - Developed companion NPCs that can lead or follow the player. Companion changes between stopped/slow/medium/fast locomotion depending on distance and LoS conditions, locomotion speed is scaled up/down to keep them at an ideal distance to the player, they interrupt and resume their current conversation based on distance to the player, can use smart objects in the environment, and designers can tweak a lot of values to make each companion behavior unique.</li>
+																<li><b>AI Distraction System</b> - Developed a Distraction System with different levels of intensity, which trigger different investigation behaviors (e.g. seeing a scaffolding collapsing, hearing a door kick, etc...), using an AI-coordinator group that would delegate tasks to the aware NPCs, each with different roles and working together to execute the investigation. They can also decide to split up during an ongoing investigation if another distraction is triggered.</li>
+																<li>AI Perception - <b>Vision Perception</b> with designer-facing custom volumes for different archetypes, and LoS checks against multiple player’s bones for visibility calculations. This ”perception value” could be modified using distance curves, which would drive behaviors like “suspicious”, “investigating”, triggering combat relocation, etc… <b>Sound perception</b> using an euclidean distance filter, followed by navmesh pathfinding to determine audible sounds.
+																<li><b>Hierarchical Task Networks</b> - Using HTN to define NPC plans, behaviors, and group/squad coordination, making use of a messaging system to achieve complex coordination between NPCs.
+																<li>General AI systems - Improved <b>dynamic navmesh modification performance</b> cost by only recomputing paths that contained affected nav polygon areas. <b>Position Reservation System</b> for NPCs, used for the Environmental Query System and navlink reservation during path-following. Improved handling of doors by NPCs, by using the navlink reservation system, and implemented sabotaged doors, where NPCs would fail to open them and proceed to kicking them down.
+																<li><b>NPC Animation Fidelity</b> - Contributed to the high animation fidelity effort for NPCs with Animators and Animation Programmers (e.g. creation of an animation ”exit reason” in AI behaviors that made NPCs smoothly play context-aware exit transition animations between different behaviors; etc...). Also worked with Animators on the NPC <b>character animation network</b>, helping to design and set up some of the networks, fixing transition animation issues, etc…
+																<li>Knowledge Representation - The features I worked on required an <b>extensive number of knowledge tables</b>, with each human NPC having around 200 different tables that they could query and modify, each with multiple parameters.
+																<li>Confrontation - This is a high awareness domain in the NPC brain, where they contextually react to everything the player can do (e.g. bluff, fake surrender, crouch, use a gadget, run away, standing still, etc...), in order to give players a chance to go back into stealth after being discovered.
+																<li><b>Performance</b> Improvements - Worked on performance improvements across many sections of the AI codebase (e.g. NPC update cycle strategy, path handling during dynamic navmesh modifications, HTN background domain updates, etc…).
+																<li>Design - <b>Collaborated heavily with Game Designers</b>, where we would discuss the initial design of a feature, solving potential design problems before even starting to code the feature, and iterate on it together.
+																<li>Environment Query System - Contributed to the implementation of a <b>environmental query system</b> used by NPCs to query the environment, as well as using it to create various queries.
 															</ul>
 														</div>
 														<div lang="jp"></div>
@@ -124,21 +165,18 @@
 															<ul>
 																<h3><b>AI</b></h3>
 																<li><b>Sea Monsters</b> - Developed the tech framework for sea monsters, including decision‑making using a HSM, data‑driven attacks with animation integration, attack windows, hit reactions, etc...</li>
-																<li><b>Environment Query System</b> - Contributed to the implementation of a spatial awareness system used by the AI agents to query the environment in order to find the best position for it to move.</li>
+																<li><b>Environment Query System</b> - Contributed to the implementation of a spatial awareness system used by the NPCs to query the environment in order to find the best position for it to move.</li>
 																<li><b>Archetype Behaviors</b> - Implemented different ship archetypes using Behavior Trees (e.g. guarding ships; ships targeting the player's side; ...).</li>
-																<li><b>Utility AI</b> - Used to decide on the high level behaviors of the agents (e.g. in combat; out of combat; fleeing; ...).</li>
-																<li><b>AI Proxy</b> - Created simple proxy objects representing the agents for when they are out of the player's loading range, allowing them to simulate some simple behaviors and keep some state while very far away from the player, saving computational costs.</li>
-																<li><b>Threat System</b> - Contributed to a system that tracks all entities that are in combat with an agent and how much threat they each pose, allowing to make decisions based on the threat each pose (e.g. attacking the entity that the agent considers more threatening; attacking the least threatening entity first to focus on the others later).</li>
-																<li><b>Attack Ticket System</b> - Contributed to a system that gives out tickets allowing agents to attack other agents or players (e.g. only allow 4 attack tickets to be given to agents targeting the player, so that the player never gets too overwhelmed).</li>
-
-																<br><h3><b>Narrative</b></h3>
+																<li><b>Utility AI</b> - Used to decide on the high level behaviors of NPCs (e.g. in combat; out of combat; fleeing; ...).</li>
+																<li><b>AI Proxy</b> - Created simple AI Proxy objects representing the NPCs for when they are out of the player’s loading range, allowing them to simulate some simple behaviors and keep some state while very far away from the player, saving performance costs.</li>
+																<li><b>Threat System</b> - Contributed to a system that tracks all entities that are in combat with an NPC and how much threat they each pose, allowing to make decisions based on the threat each pose (e.g. attacking the entity that the NPC considers more threatening; attacking the least threatening entity first to focus on the others later).</li>
+																<li><b>Attack Ticket System</b> - Contributed to the Attack Ticket System, providing tickets to NPCs to allow them to attack players or other NPCs (e.g. only allow 4 tickets to be given to NPCs targeting the player, so that the player never gets attacked by too many NPCs at the same time).</li>
+																<br><h3><b>Gameplay</b></h3>
 																<li><b>Dialogue & Story Controller</b> - Implemented a fully event-driven, time-sliced dialogue controller for the game's narrative, supporting concurrent dialogues for both land and sea. This system is able to analyse the state of the game and decide which dialogue scene it should play.<!--After doing a performance pass, I improved the system's performance by nearly 60%.--></li> <!----Need to talk more about this one.-->
 																<li><b>Sound Matching Lip Sync</b> - Integrated lip syncing technology in the engine, handling the logic for the lip's movements and integrating it into the animation graph.</li>
 																<li><b>Remember Player-Actions System</b> - Implemented a system that keeps track of dozens of player actions, allowing characters to respond to those same actions (e.g. player defeated an enemy with a specific weapon, so some characters might react to that when the player talks to them).</li>
-																<li><b>Dialogue Editor</b> - Supported and extended a tool for the creation of dialogue scenes.</li>
+																<li><b>Dialogue Editor</b> - Supported and extended a tool for the creation of narrative scenes.</li>
 																<li>Created debug tools using ImGui.</li>
-																<li>Worked with Technical Animators in the Animation Graph.</li>
-																<li>Autonomously drove features forward, actively reaching out to designers and producers to keep things on track.</li>
 															</ul>
 														</div>
 														<div lang="jp"></div>
@@ -168,14 +206,10 @@
 													<p>
 														<div lang="en">
 															<ul>
-																<li><b>Heat Mechanic</b> - Player has to carry a bomb-like item and shield it from the sun, otherwise it overheats and explodes.
-																<br>→ Used periodic raycasts to detect line-of-sight with the sun.
-																<br>→ Cached closed-by bushes to verify if the player was inside them using collision detection.
-																<br>→ Built water objects to cool the bomb (e.g. sprinkle that can be turned on/off; water park mushroom; water sink that can be interacted with).
+																<li><b>Heat Mechanic</b> - Contributed to the Heat Mechanic Game Mode where the player has to carry a bomb and protect it from the sun, otherwise it can overheat and explode. Also created water objects that can cool off the bomb.
 																<li><b>Player Lives</b> - Implemented an arcade "player lives" feature for the Special Operations game mode, where players have a limited number of times they can die before failing the mission. Required integration with the normal quest flow and UI elements.</li>
 																<li><b>Interaction System</b> - Improvements on the interaction system, creating different scoring profiles for new gameplay functionalities (e.g. interacting with teammate; picking up a bomb).</li>
 																<li><b>Networking</b> - Wrote multiplayer code for the gameplay systems I was in charge of.</li>
-																<li><b>Animations</b> - Worked with animators to link animations to gameplay systems.</li>
 																<li>Exposed C++ functionalities to blueprint nodes through LUA, used by quest and technical designers.</li>
 																<li>UI - Worked closely with UI artists for new HUDs and screens that new gameplay features required. Created a tutorial video for programmers teaching how to code/use the UI framework.</li>
 															</ul>
@@ -210,11 +244,11 @@
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">AI - Used <b>Behavior Trees</b> to implement the AI Agents behavior (and adapt it to a multiplayer setting), like the heuristic to follow when choosing the plate to eat, their movement, and social interactions with the player.</div>
+															<div lang="en">AI - Used <b>Behavior Trees</b> to implement the behavior of NPCs (and adapt it to a multiplayer setting), like the heuristic to follow when choosing the plate to eat, their movement, and social interactions with the player.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
-															<div lang="en">Networking - Implemented the required network code to allow the game to be played in a multiplayer setting, both for the player and for AI agents.</div>
+															<div lang="en">Networking - Implemented the required network code to allow the game to be played in a multiplayer setting, both for the player and for NPCs.</div>
 															<div lang="jp"></div>
 														</li>
 														<li>
@@ -250,6 +284,40 @@
 										</h2>
 									</header>
 									<div class="posts">
+
+										<article id="behavior-tree-plugin">
+											<h2>
+												<div lang="en">Behavior Tree Plugin for Unity</div>
+												<div lang="jp"></div>	
+											</h2>
+											<div class="row gtr-200">
+												<div class="col-5 col-12-medium">
+													<pre>
+														<code>
+// Simple Demonstration.
+[Serializable]
+public class BT_Player : BehaviourTree {
+  public BT_Player(BB_Player blackboard) : base(blackboard) {
+    root =
+      new MemSelector(new List<BaseNode> {
+        new MemSequence(new List<BaseNode> {
+	      new BTTask_MoveTo(ref blackboard.nextPointVector, 3.0f)
+        }, new BlackboardCondition<Hero.State>(ref blackboard.heroState, Hero.State.Unprotected, Utils.KEY_QUERY.IS_EQUAL_TO))
+      });
+  }
+}
+														</code>
+													</pre>
+												</div>
+												<div class="col-7 col-12-medium">
+													<p>
+														<div lang="en" class="project-pitch">My Behavior Tree plugin for the Unity Engine, complete with Blackboards, Composite Nodes, Tasks, Decorators and Behavior Trees. Access the open source repository <a href="https://github.com/Evenilink/Unity-BehaviorTreeSystem">here</a>.</div>
+														<div lang="jp" class="project-pitch"></div>
+													</p>
+												</div>
+											</div>
+											<hr class="dashed">
+										</article>
 
 										<article id="magis">
 											<h2>
@@ -288,7 +356,7 @@
 													</ul>
 												</div>
 											</div>
-											<hr class="dashed">
+											<!--hr class="dashed"-->
 										</article>
 
 										<!--
@@ -333,41 +401,7 @@
 										</article>
 										-->
 
-										<article id="behavior-tree-plugin">
-											<h2>
-												<div lang="en">Behavior Tree Plugin for Unity</div>
-												<div lang="jp"></div>	
-											</h2>
-											<div class="row gtr-200">
-												<div class="col-5 col-12-medium">
-													<pre>
-														<code>
-// Simple Demonstration.
-[Serializable]
-public class BT_Player : BehaviourTree {
-  public BT_Player(BB_Player blackboard) : base(blackboard) {
-    root =
-      new MemSelector(new List<BaseNode> {
-        new MemSequence(new List<BaseNode> {
-	      new BTTask_MoveTo(ref blackboard.nextPointVector, 3.0f)
-        }, new BlackboardCondition<Hero.State>(ref blackboard.heroState, Hero.State.Unprotected, Utils.KEY_QUERY.IS_EQUAL_TO))
-      });
-  }
-}
-														</code>
-													</pre>
-												</div>
-												<div class="col-7 col-12-medium">
-													<p>
-														<div lang="en" class="project-pitch">My Behavior Tree plugin for the Unity Engine, complete with Blackboards, Composite Nodes, Tasks, Decorators and Behavior Trees. Access the open source repository <a href="https://github.com/Evenilink/Unity-BehaviorTreeSystem">here</a>.</div>
-														<div lang="jp" class="project-pitch"></div>
-													</p>
-												</div>
-											</div>
-											<hr class="dashed">
-										</article>
-
-										<article id="unstatic">
+										<!--article id="unstatic">
 											<h2>
 												<div lang="en">Unstatic</div>
 												<div lang="jp"></div>	
@@ -400,12 +434,13 @@ public class BT_Player : BehaviourTree {
 													</ul>
 												</div>
 											</div>
-										</article>
+										</article-->
+
 									</div>
 								</section>
 
 							<!-- Skills -->
-								<section>
+								<!--section>
 									<header class="major" id="skills">
 										<h2>Skills</h2>
 									</header>
@@ -416,15 +451,15 @@ public class BT_Player : BehaviourTree {
 										</div>
 										<div class="col-6 col-12-medium">
 											<h3>Environment Query System</h3>
-											<p>Very experienced with EQS. I’ve expanded the technology in ”007 First Light” with more generators, filters and evaluators. Used it in Skull and Bones for sea monster and ship position selection (e.g. keeping an enemy ship at the back of the player’s ship; keep an enemy ship in a position where it’s close to its allies but blocking the line of sight from the player to the allies; etc). I’ve also used it in Unreal Engine for small prototypes (e.g. simulating Final Fantasy XV AI buddy position philosophy, where the agents stay at the front of the player’s direction and in the camera view while roaming in the world).</p>
+											<p>Very experienced with EQS. I’ve expanded the technology in ”007 First Light” with more generators, filters and evaluators. Used it in Skull and Bones for sea monster and ship position selection (e.g. keeping an enemy ship at the back of the player’s ship; keep an enemy ship in a position where it’s close to its allies but blocking the line of sight from the player to the allies; etc). I’ve also used it in Unreal Engine for small prototypes (e.g. simulating Final Fantasy XV AI buddy position philosophy, where the NPCs stay at the front of the player’s direction and in the camera view while roaming in the world).</p>
 										</div>
 										<div class="col-6 col-12-medium">
 											<h3>Pathfinding & Navigation</h3>
-											<p>I’ve implemented pathfinding algorithms like A* (e.g. in a project where many agents are placed in a room with fog of war, with the goal of finding the room exit and informing the other agents where the exit is). In ”007 First Light”, worked on generating paths with Navigation Links and coded how the agents use said links, with animation integration. Also implemented Dijkstra algorithm for a GPS app that lets users see the shortest path from a starting to an ending location.</p>
+											<p>I’ve implemented pathfinding algorithms like A* (e.g. in a project where many NPCs are placed in a room with fog of war, with the goal of finding the room exit and informing the other NPCs where the exit is). In ”007 First Light”, worked on generating paths with Navigation Links and coded how the NPCs use said links, with animation integration. Also implemented Dijkstra algorithm for a GPS app that lets users see the shortest path from a starting to an ending location.</p>
 										</div>
 										<div class="col-6 col-12-medium">
 											<h3>Hierarchical and Finite State Machines</h3>
-											<p>Experienced with both HSM and FSM for controlling AI agents, for the player controller, and for animation graphs. I’ve used HSM in Skull and Bones for sea monsters, and on Far Cry 6 for the player controller state machine (for hierarchical states like Ground/GroundMove/GoundSliding).</p>
+											<p>Experienced with both HSM and FSM for controlling NPCs, for the player controller, and for animation graphs. I’ve used HSM in Skull and Bones for sea monsters, and on Far Cry 6 for the player controller state machine (for hierarchical states like Ground/GroundMove/GoundSliding).</p>
 										</div>
 										<div class="col-4 col-12-medium">
 											<h3>3D Math</h3>
@@ -454,21 +489,31 @@ public class BT_Player : BehaviourTree {
 											</p>
 										</div>
 									</div>
-								</section>
+								</section-->
 
 								<section>
 									<header class="major">
-										<h2 id="career-path">Career Path</h2>
+										<h2 id="career-path">Work History</h2>
 									</header>
 									<div class="posts">
+
+										<article>
+											<h2>UNSEEN Tokyo</h2>
+											<p>
+												<span class="image left"><img src="images/unseen-tokyo-logo.png" alt="UNSEEN Tokyo Logo" /></span>
+												<h4 >Senior AI/Gameplay Programmer</h4>
+												<h4>November 2025 - Present</h4>
+												Working on Kemuri.
+											</p>
+										</article>
 
 										<article>
 											<h2>IO Interactive</h2>
 											<p>
 												<span class="image left"><img src="images/ioi-logo.jpg" alt="IO Interactive Logo" /></span>
 												<h4 >Senior AI Programmer</h4>
-												<h4>September 2023 - Present</h4>
-												Working on 007 First Light.
+												<h4>September 2023 - October 2025</h4>
+												Worked on 007 First Light.
 											</p>
 										</article>
 
@@ -476,7 +521,7 @@ public class BT_Player : BehaviourTree {
 											<h2>Ubisoft Singapore</h2>
 											<p>
 												<span class="image left"><img src="images/ubisoft-white.png" alt="Ubisoft Logo" /></span>
-												<h4 >AI & Gameplay Programmer</h4>
+												<h4 >AI/Gameplay Programmer</h4>
 												<h4>October 2020 - July 2023</h4>
 												Moved to Singapore to experience working on a studio that was the lead studio on a AAA project (Skull and Bones).
 											</p>
@@ -543,7 +588,7 @@ public class BT_Player : BehaviourTree {
 											<div lang="jp"></div>
 										</h2>
 										<h2>
-											<div lang="en">Senior AI Programmer</div>
+											<div lang="en">Senior AI/ Gameplay Programmer</div>
 											<div lang="jp"></div>
 										</h2>
 									</div>
@@ -558,6 +603,7 @@ public class BT_Player : BehaviourTree {
 										<li>
 											<span class="opener">Professional Projects</span>
 											<ul>
+												<li><a href="#kemuri">Kemuri</a></li>
 												<li><a href="#first-light">007 First Light</a></li>
 												<li><a href="#skull-and-bones">Skull and Bones</a></li>
 												<li><a href="#far-cry-6">Far Cry 6</a></li>
@@ -567,14 +613,14 @@ public class BT_Player : BehaviourTree {
 										<li>
 											<span class="opener">Personal Projects</span>
 											<ul>
+												<li><a href="#behavior-tree-plugin">Behavior Tree Plugin</a></li>
 												<li><a href="#magis">Magis</a></li>
 												<!--li><a href="#stealth-prototype">Stealth Prototype</a></li-->
-												<li><a href="#behavior-tree-plugin">Behavior Tree Plugin</a></li>
-												<li><a href="#unstatic">Unstatic</a></li>
+												<!--li><a href="#unstatic">Unstatic</a></li-->
 											</ul>
 										</li>
-										<li><a href="#skills">Skills</a></li>
-										<li><a href="#career-path">Career Path</a></li>
+										<!--li><a href="#skills">Skills</a></li-->
+										<li><a href="#career-path">Work History</a></li>
 									</ul>
 								</nav>
 
