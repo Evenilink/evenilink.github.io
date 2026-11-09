@@ -91,8 +91,14 @@
 													<p>
 														<div lang="en">
 															<ul>
-																<li>Since the game is still in development, I’ll just briefly mention some contributions without going into details: Combat AI behaviors for ground and flying NPCs, combat feel, Attack Ticket System, flight movement, Behavior Tree logic, Environment Query System extension, GAS, etc....
-																</li>
+																<li>Introduced an <b>Engagement Zones System</b>, which are custom-defined areas around the player, each owned by 1 NPC (dynamically assigned), where NPCs move to and attack from during combat, with different zone types (ground-melee; flying range; etc…). This addition was extremely well received since it drastically improved combat readability.</li>
+																<li>Introduced an <b>Attack Ticket System</b>, where NPCs would request ticket(s) to attack and the system would either grant them or place the NPCs in a queue. Contains a Scored Waiting Queue to control which NPCs should attack more frequently, as well as Queue Skip and Ticket Stealing functionality when detecting that an NPC should attack immediately (for opportunistic attacks).</li>
+																<li>Created new Combat Abilities using the <b>GAS framework</b> in UE5, and iterated on the data-driven combat ability selection logic.</li>
+																<li>Improved <b>Combat Feel</b> - Introduced a cheap solution to make NPCs move around the player instead of coming at a straight angle (funneling) by using a high cost dynamic navigation obstacle around the player. Improved NPC’s position selection during combat by considering the distance to walls, prioritizing positions in open spaces for smoother gameplay. Improved position selection for flying NPCs, making their navigation more reliable. Decreased frequency of NPCs moving around too much during combat (ping-pong between positions), by only making them move when their current position is no longer suitable (instead of always going to their best position at any given time, which might oscillate). Introduced magnetization towards breakable-items when an NPC is knocked-back (and breaking said items in the process), making the environment more reactive. Added wall-bounce when enemies are knocked-back into a wall.</li>
+																<li>Worked with <b>Behavior Trees</b> to drive NPC’s behaviors. Introduced Dynamic <b>Behavior Tree Injection</b> to avoid tree duplication.</li>
+																<li>Automatic generation of markups during <b>Navmesh post-processing</b>.</li>
+																<li>Created <b>debug visualization tools</b> for combat-related systems, including the Attack Ticket System, the Engagement Zones, Ability Selection, and NPC State, which helped designers iterate on the data setup, as well as QA during bug reporting.</li>
+																<li>Extended the <b>Environment Query System</b> with new generators (e.g. positions inside the NPC’s assigned Engagement Zone) and tests (e.g. distance from navmesh edges). Improved maintainability by creating commonly used data bindings (e.g. NPC’s radius), as well as a Dynamic Post Projection Offset for use with flying NPCs.</li>
 															</ul>
 														</div>
 														<div lang="jp"></div>
